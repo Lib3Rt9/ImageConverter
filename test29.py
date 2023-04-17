@@ -11,8 +11,8 @@ directory = pathlib.Path(__file__).parent.resolve()
 img_exts = (".HEIC", ".heic", ".HEIF", ".heif", ".JPG", ".jpg", ".PNG", ".png", ".WEBP", ".webp")
 
 # Set the source and target image formats
-source_format = (".HEIC", ".heic", ".HEIF", ".heif")
-target_format = (".jpg")
+source_format = (".jpg")
+target_format = (".heic")
 
 # pillow_heif.register_heif_opener()
 register_heif_opener()
@@ -23,8 +23,8 @@ remove_originals = True
 def convert_to_heic(img_path):
     img = Image.open(img_path)
     img.show()
-    heif_img = pillow_heif.from_pil_image(img)
-    heif_img.save(img_path.replace(os.path.splitext(img_path)[1], target_format))
+    # heif_img = pillow_heif.open_heif(img)
+    img.save(img_path.replace(os.path.splitext(img_path)[1], target_format))
 
 def convert_to_other(img_path):
     
