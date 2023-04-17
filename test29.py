@@ -12,7 +12,7 @@ img_exts = (".HEIC", ".heic", ".HEIF", ".heif", ".JPG", ".jpg", ".PNG", ".png", 
 
 # Set the source and target image formats
 source_format = (".HEIC", ".heic", ".HEIF", ".heif")
-target_format = (".png")
+target_format = (".jpg")
 
 # pillow_heif.register_heif_opener()
 register_heif_opener()
@@ -65,7 +65,7 @@ for filename in os.listdir(directory):
             img.save(os.path.join(directory, filename.replace(os.path.splitext(filename)[1], target_format)))
 
         else:
-            if target_format in (".HEIC", ".heic"):
+            if target_format in (".HEIC", ".heic", ".HEIF", ".heic"):
                 convert_to_heic(img_path)
             else:
                 convert_to_other(img_path)
